@@ -30,3 +30,5 @@ Then open http://localhost:8080.
 `dist/index.html` is the complete standalone prototype with its styles, scripts and icon assets embedded. No dependency installation or build step is required. `.openai/hosting.json` identifies the Sites deployment and static output directory.
 
 Edit `dist/index.html` to update the prototype. The original customer requirements and proposal documents are intentionally excluded from this repository.
+
+Seeded workflows follow concrete operating-review scenarios: Northstar Support cost follow-up, Harbor revenue-growth repeatability, and monthly partner-brief preparation. Resume prompts identify their task, and generated deliverable names include company scope and reporting month.
