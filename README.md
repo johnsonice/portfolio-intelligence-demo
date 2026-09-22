@@ -9,7 +9,7 @@ Interactive product prototype for a private equity portfolio intelligence worksp
 - **My work:** tasks and saved output versions.
 - **Automations:** configurable example workflows and traceable simulated runs.
 - **Dashboards:** four KPI tiles with monthly comparisons and sparklines; indexed trends, department cost mix, company cost-intensity lines, cost-growth contributions, monthly momentum heatmap and an expanded operating scorecard. Revenue mix is available in the tile catalog. Views follow company/month filters and support agent drilldown, rearrangement and pinned source versions.
-- **Cases and Sources:** full finding cards, detailed charts, investigation context and illustrative evidence.
+- **Cases and Sources:** analytical case reports with executive KPIs, indexed trends, monthly source values, department cost bridges, portfolio comparisons and management review agendas. A bottom composer carries the case into a new agent investigation, with calculated follow-ups for cost drivers, September and peers. Existing task drafts and the prepared case snapshot are preserved. Sources and methodology are available in an expandable section.
 
 ## Demo scope
 
