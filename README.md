@@ -2,6 +2,10 @@
 
 Interactive product prototype for a private equity portfolio intelligence workspace.
 
+## Company scope
+
+The shared Portfolio scope selector supports all companies, one company or a custom group. Home findings and recommendations, Cases, Sources, My work and Routines follow it. Shared tasks and routines match any selected company and retain their full, labeled scope. Prepared portfolio findings are shown in All companies. New agent tasks and routines inherit the selection. Dashboard tiles follow the shared scope by default, with an optional local override; pinned source snapshots retain their original scope. Existing agent reports, prepared cases, routine configurations and run evidence are not rewritten when the browsing filter changes. Agent scope can be changed explicitly, creating a new report version while retaining the conversation draft.
+
 ## Experience
 
 - **Home:** an agent task entry with compact suggested-prompt chips beneath the composer, derived from in-session drafts, saved briefs and September company signals; six compact finding previews linking to detailed cases and analysis. Suggestions resume work or create scoped outputs, preserve source versions and reuse previously started tasks.
