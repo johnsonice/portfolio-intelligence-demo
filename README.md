@@ -8,7 +8,7 @@ Interactive product prototype for a private equity portfolio intelligence worksp
 - **Agent:** a streamlined conversation pane with a fixed composer, collapsible context and independently scrollable reports. Reports include calculated KPI summaries, company scorecards, cost contribution analysis, review agendas and methodology; charts, tables and partner briefs adapt to scope, month and cost basis.
 - **My work:** tasks and saved output versions.
 - **Automations:** configurable example workflows and traceable simulated runs.
-- **Dashboards:** reusable metric views, filters and pinned analysis.
+- **Dashboards:** four KPI tiles with monthly comparisons and sparklines; indexed trends, department cost mix, company cost-intensity lines, cost-growth contributions, monthly momentum heatmap and an expanded operating scorecard. Revenue mix is available in the tile catalog. Views follow company/month filters and support agent drilldown, rearrangement and pinned source versions.
 - **Cases and Sources:** investigation context and illustrative evidence.
 
 ## Demo scope
