@@ -5,7 +5,7 @@ Interactive product prototype for a private equity portfolio intelligence worksp
 ## Experience
 
 - **Home:** six prioritized company and portfolio findings, inline trend and contribution charts, source periods, next questions and ongoing work.
-- **Agent:** conversational analysis with generated charts, tables and briefs.
+- **Agent:** a streamlined conversation pane with a fixed composer, collapsible context and independently scrollable reports. Reports include calculated KPI summaries, company scorecards, cost contribution analysis, review agendas and methodology; charts, tables and partner briefs adapt to scope, month and cost basis.
 - **My work:** tasks and saved output versions.
 - **Automations:** configurable example workflows and traceable simulated runs.
 - **Dashboards:** reusable metric views, filters and pinned analysis.
