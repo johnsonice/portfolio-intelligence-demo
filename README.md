@@ -4,12 +4,12 @@ Interactive product prototype for a private equity portfolio intelligence worksp
 
 ## Experience
 
-- **Home:** an agent task entry with compact suggested-prompt chips beneath the composer, derived from in-session drafts, saved briefs and September company signals; six prioritized findings with inline charts. Suggestions resume work or create scoped outputs, preserve source versions and reuse previously started tasks.
+- **Home:** an agent task entry with compact suggested-prompt chips beneath the composer, derived from in-session drafts, saved briefs and September company signals; six compact finding previews linking to detailed cases and analysis. Suggestions resume work or create scoped outputs, preserve source versions and reuse previously started tasks.
 - **Agent:** a streamlined conversation pane with a fixed composer, collapsible context and independently scrollable reports. Reports include calculated KPI summaries, company scorecards, cost contribution analysis, review agendas and methodology; charts, tables and partner briefs adapt to scope, month and cost basis.
 - **My work:** tasks and saved output versions.
 - **Automations:** configurable example workflows and traceable simulated runs.
 - **Dashboards:** four KPI tiles with monthly comparisons and sparklines; indexed trends, department cost mix, company cost-intensity lines, cost-growth contributions, monthly momentum heatmap and an expanded operating scorecard. Revenue mix is available in the tile catalog. Views follow company/month filters and support agent drilldown, rearrangement and pinned source versions.
-- **Cases and Sources:** investigation context and illustrative evidence.
+- **Cases and Sources:** full finding cards, detailed charts, investigation context and illustrative evidence.
 
 ## Demo scope
 
