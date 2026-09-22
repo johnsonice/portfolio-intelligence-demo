@@ -4,7 +4,7 @@ Interactive product prototype for a private equity portfolio intelligence worksp
 
 ## Experience
 
-- **Home:** prioritized findings and ongoing work.
+- **Home:** six prioritized company and portfolio findings, inline trend and contribution charts, source periods, next questions and ongoing work.
 - **Agent:** conversational analysis with generated charts, tables and briefs.
 - **My work:** tasks and saved output versions.
 - **Automations:** configurable example workflows and traceable simulated runs.
