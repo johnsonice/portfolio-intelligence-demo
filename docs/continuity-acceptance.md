@@ -1,6 +1,6 @@
 # Continuity exploration acceptance
 
-Scope: the six KZone-inspired product changes in the existing priority exploration. All portfolio records and agent execution remain synthetic and local to the browser.
+Scope: the six KZone-inspired product changes and subsequent Home and Case follow-up refinements in the existing priority exploration. All portfolio records and agent execution remain synthetic and local to the browser.
 
 ## Evidence
 
@@ -15,6 +15,7 @@ Scope: the six KZone-inspired product changes in the existing priority explorati
 | Conversation continuity | Browser: “Why did Cedar costs rise in July?” followed by “Why did that change?” both retained June–July and the same 4.0% cost / 1.7% revenue comparison. Logic regression also checks report-generation intent and custom comparison starts. |
 | Responsive layout | Browser: checked desktop and 390 × 844 viewport. Adjust-plan drawer, context drawer, judgment form, task conversation and artifact navigation remained operable. Fixed the mobile toolbar overflow and retained the compact desktop toolbar. |
 | Compact Home cards | Browser: three-column desktop and single-column 390 × 844 layouts; chart previews expand in place. An adjusted August partner brief displays August in its Home title, June–August as its period and the matching calculated values. Review opens that existing artifact. October follow-ups show Waiting for data without substituting an earlier period. Original company Case and portfolio-report links still open their detailed reports. |
+| Prominent Case follow-up | Desktop browser: verified the report's follow-up panel with a freeform input and three contextual suggestions for September comparison, possible explanations and an operating partner brief. Exercised a freeform query and the September suggestion. Cancelling a pending query restored its Case draft separately from the existing Scout draft. Workspace navigation reopened the existing Northstar Case 014 investigation with the exact user question and answer retained. At 390 × 844, the suggestions stack below the composer. Harbor’s generated brief retained June–August and its company scope. A saved Case draft was restored after reload. |
 
 ## Repeatable checks
 
