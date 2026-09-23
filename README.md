@@ -6,11 +6,11 @@ This experimental branch, `explore/priority-led-home`, starts from `ce07a92`. It
 
 ## Priority-led experience
 
-Home selects the next useful actions; a contextual side assistant explains, navigates and prepares work; Workspace owns sustained investigations and artifacts.
+Home selects the next useful actions; Scout, a floating portfolio companion, answers lightweight questions in place; Workspace owns sustained investigations and artifacts.
 
-The assistant uses an original robot avatar. On desktop, its panel pushes the content aside and can be resized with the divider or arrow keys. On smaller screens it becomes a full-width dialog. Closing preserves the conversation and draft during the current visit. It is hidden in Workspace, which retains its existing task conversation.
+Scout is an original illustrated character with a cobalt crest, ivory face and pale-blue scarf. Drag it anywhere in the viewport. Its conversation bubble follows above its head and flips below near the top edge. The page remains usable and keeps its layout. The same bounded bubble is used on smaller screens. Click to open or close; closing and dragging preserve dialogue, scroll position and the unsent draft during this visit. Arrow keys move the focused character; Home returns it to the corner; Escape closes its bubble. Position is remembered in this browser. Scout is hidden in Workspace, where the existing task conversation takes over.
 
-Messages retain their original company and period context. New questions follow the current page or an explicitly requested scope. Explicit navigation requests can open a scoped dashboard, case, Sources or Routines. Reports are prepared in the side panel first; Open workspace continues the same task, carrying the relevant conversation, source context and generated artifact. Work in workspace is also available before an artifact exists. Ordinary data questions do not generate reports or new tasks.
+Messages retain company and period context. Named-company questions can change the conversation scope without changing the page filter. Requests to find a dashboard, case, Sources or Routines return an explicit navigation button. Source values expand inside the bubble. A request for a report or brief presents a scoped Workspace handoff card; it does not create an artifact until the user clicks Start in Workspace. The footer follows the same pending request. Handoff reuses the relevant task, preserves existing drafts and carries the conversation and source context. Reopening the card reuses the output. Ordinary data questions generate neither reports nor new tasks.
 
 ## Company scope
 
@@ -23,11 +23,11 @@ A single left-aligned company dropdown combines the current selection (such as A
 - **Routines:** configurable example workflows and traceable simulated runs.
 - **Dashboards:** four KPI tiles with monthly comparisons and sparklines; indexed trends, department cost mix, company cost-intensity lines, cost-growth contributions, monthly momentum heatmap and an expanded operating scorecard. Revenue mix is available in the tile catalog. Views follow company/month filters and support agent drilldown, rearrangement and pinned source versions.
 - **Sources:** company-grouped HR and financial connector cards with simulated connection health, publication coverage and run history. Monthly source values remain browsable through company, source-type and period filters. The shared assistant handles natural-language questions and source explanations, with source-publication lineage. Unsupported fields return clarification. Illustrative system assignments are not live integrations.
-- **Cases:** analytical case reports with executive KPIs, indexed trends, monthly source values, department cost bridges, portfolio comparisons and management review agendas. Contextual actions open the shared side assistant to explain drivers, compare September or create a review brief. There is no separate bottom composer. Existing task drafts and the prepared case snapshot are preserved. Sources and methodology are available in an expandable section.
+- **Cases:** analytical case reports with executive KPIs, indexed trends, monthly source values, department cost bridges, portfolio comparisons and management review agendas. Contextual actions open the shared floating companion to explain drivers, compare September or create a review brief. There is no separate bottom composer. Existing task drafts and the prepared case snapshot are preserved. Sources and methodology are available in an expandable section.
 
 ## Demo scope
 
-All portfolio data is synthetic. Agent responses and routine runs are simulated locally. No live model, customer data source, scheduler, account system or backend is connected. Demo work is held in memory and resets when the page reloads. Only layout preferences (pane widths, collapsed states and focus mode) persist locally; no conversation or portfolio data is stored by this feature.
+All portfolio data is synthetic. Agent responses and routine runs are simulated locally. No live model, customer data source, scheduler, account system or backend is connected. Demo work is held in memory and resets when the page reloads. Only layout preferences (pane widths, collapsed states, focus mode and companion position) persist locally; no conversation or portfolio data is stored by this feature.
 
 ## Run locally
 
@@ -51,11 +51,11 @@ Seeded workflows follow concrete operating-review scenarios: Northstar Support c
 
 Validated in the local browser at desktop and mobile widths:
 
-- Northstar priority → September explanation → brief in the side panel → original Northstar task, with prior conversation and unsent draft retained.
-- Saved August brief → new September draft; original saved version stays intact.
-- Follow-up data question leaves the report unchanged and travels into the task on handoff.
-- Explicit Cedar dashboard navigation applies the company and period selection.
-- Sources June filter → assistant revenue query returns June values.
-- Priority defer and restore, assistant keyboard resize, mobile close/restore, and Work in workspace with an unsent draft.
+- Drag the character with an open bubble; the bubble follows and avoids viewport edges without losing the draft or toggling closed.
+- Close and reopen the bubble; dialogue, scroll position and unsent text survive.
+- Northstar priority answers on Home; requesting a brief keeps its two existing outputs unchanged until explicit Workspace handoff.
+- Workspace handoff creates the September brief in the original Northstar task, retaining earlier dialogue and combining the existing unsent draft with the companion draft.
+- Requests for Cedar’s dashboard stay on the page until the navigation button is clicked; source values expand inline and show September revenue of $6.35m.
+- Pending work cards label resolved company scope. Formal requests freeze their starting document configuration; later edits do not silently replace it.
 
 All embedded JavaScript passes syntax checks. No live LLM, durable memory, automatic scheduling or connector execution is implied.
