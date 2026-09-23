@@ -4,9 +4,9 @@ Interactive product prototype for a private equity portfolio intelligence worksp
 
 This experimental branch, `explore/priority-led-home`, starts from `ce07a92`. It has its own Sites identity and preview; the main branch and original published demo are preserved.
 
-## Priority-led experience
+## Unified briefing and companion
 
-Home selects the next useful actions; Scout, a floating portfolio companion, answers lightweight questions in place; Workspace owns sustained investigations and artifacts.
+Home combines prepared Signals and Suggested tasks in one briefing feed. Scout, a floating portfolio companion, answers lightweight questions in place; Workspace owns sustained investigations and artifacts.
 
 Scout now uses the selected **08 Block Robot**: an ivory modular body, forest-green faceplate, amber eyes and coral ear. Its idle, wave and thinking illustrations are embedded in the page. Hover reveals a compact text/microphone input below the pet; successive visits alternate a wave, curious tilt and playful bob. Click or keyboard focus also opens the input. Reduced-motion preferences suppress animation.
 
@@ -24,7 +24,7 @@ A single left-aligned company dropdown combines the current selection (such as A
 
 ## Experience
 
-- **Home:** a concise “Here’s what’s next” briefing with up to three contextual priorities, evidence summaries, Why this explanations, defer/restore controls and a dependency-based Next up list. Priority state reflects newly prepared drafts. Portfolio signals remain secondary, with independently expandable quick charts and links to full cases. The large agent composer and prompt strip are removed.
+- **Home:** one mixed briefing feed replaces separate priorities, Next up and Portfolio signals. Signal tags identify prepared June–August analysis, with expandable chart previews and read-only report links. Suggested task tags identify prepared workflows for a September partner brief, September operating scorecard and a management review agenda. Users can browse all items or filter by type. Each workflow preview shows the exact prompt, steps, input scope, report period and saved-source version where relevant. Run task creates the configured result directly in Workspace; its original card becomes Ready / Open Workspace and reopens the same task. Ready cards retain the input snapshot used for that result. Company filters apply to both item types. Existing company cases and prepared portfolio reports keep their original scope; recent work and pinned outputs remain separate resumable work, not new suggestions.
 - **Workspace:** one place for task sessions, agent conversations and generated artifacts. A searchable sidebar switches between Tasks and Artifacts, including saved versions; opening an artifact restores its originating conversation. Tasks retain independent drafts, context and versions. The sidebar follows company filters while an open task keeps its own scope. A compact single-row task toolbar pairs the task title with its analysis company dropdown. Long titles and company selections truncate without wrapping; the scope label remains available to assistive technology and in the dropdown tooltip. Desktop uses a conversation/artifact workspace without a separate view-mode selector; navigation, task list and conversation/artifact panes have draggable, keyboard-accessible dividers. Navigation snaps to an icon rail, tasks fold to a slim restore strip, and either content pane can fold to its edge. Dragging or switching focus preserves drafts, selected artifacts and scroll position; restoring uses the prior expanded width. Layout preferences are saved locally in this browser. Smaller screens use a task drawer and a contextual Artifacts / Back to chat button without overwriting desktop widths or focus mode. Reports include calculated KPI summaries, company scorecards, cost contribution analysis, review agendas and methodology; charts, tables and partner briefs adapt to scope, month and cost basis.
 - **Routines:** configurable example workflows and traceable simulated runs.
 - **Dashboards:** four KPI tiles with monthly comparisons and sparklines; indexed trends, department cost mix, company cost-intensity lines, cost-growth contributions, monthly momentum heatmap and an expanded operating scorecard. Revenue mix is available in the tile catalog. Views follow company/month filters and support agent drilldown, rearrangement and pinned source versions.
@@ -55,14 +55,16 @@ Seeded workflows follow concrete operating-review scenarios: Northstar Support c
 
 ## Interaction checks
 
-Validated locally at desktop and 390 × 844 mobile size:
+The unified briefing was validated locally at desktop and 390 × 844 mobile size:
 
-- Text/microphone dock below the pet, compact answer above it, and viewport edge containment.
-- Pointer dragging, keyboard corner reset, and Escape/reopen with an unsent draft.
-- Simulated progress, cancellation restoring the request, and short data answers without navigation.
-- Rapid Northstar → Cedar priority changes discard the stale request and preserve existing text.
-- Cedar brief creation occurs only after Work in Workspace; its conversation, September scope and calculated report are carried over.
-- Voice preflight explains processing and provides language selection. Parent bridge lifecycle/schema tests use a mocked recognizer; no microphone permission or recording was triggered during QA. Live recognition requires user/browser testing.
-- Embedded scripts pass syntax checks; no browser JavaScript errors in the tested flows.
+- All / Signals / Suggested tasks filters, expandable chart and workflow previews.
+- All-company brief creation directly in Workspace with the prepared prompt, September source values and preserved August source version.
+- Management review agenda draws the actual questions and evidence requests from each prepared company case, including Cedar revenue-recognition timing and Harbor capacity.
+- Cedar-only filtering scopes the feed and generated operating scorecard to Cedar.
+- Completed task cards expose their existing Workspace result; the ready state does not create another feed card.
+- Portfolio Signals open read-only prepared analysis with full source tables; opening the report does not create an artifact or alter the active Workspace report.
+- All embedded JavaScript passes syntax checks; no browser JavaScript errors occurred in tested flows.
 
-All data and agent progress are simulated. No live LLM, durable memory, automatic scheduling or connector execution is implied.
+The floating Block Robot retains its drag, hover, compact conversation and Workspace handoff behavior. Voice preflight explains browser-managed processing; no microphone recording is triggered in automated QA. Live dictation requires user/browser support.
+
+All data, agent responses and workflow execution are simulated locally. No live LLM, durable memory, automatic scheduling or connector execution is implied.
