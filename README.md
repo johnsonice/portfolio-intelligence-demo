@@ -8,9 +8,15 @@ This experimental branch, `explore/priority-led-home`, starts from `ce07a92`. It
 
 Home selects the next useful actions; Scout, a floating portfolio companion, answers lightweight questions in place; Workspace owns sustained investigations and artifacts.
 
-Scout is an original illustrated character with a cobalt crest, ivory face and pale-blue scarf. Drag it anywhere in the viewport. Its conversation bubble follows above its head and flips below near the top edge. The page remains usable and keeps its layout. The same bounded bubble is used on smaller screens. Click to open or close; closing and dragging preserve dialogue, scroll position and the unsent draft during this visit. Arrow keys move the focused character; Home returns it to the corner; Escape closes its bubble. Position is remembered in this browser. Scout is hidden in Workspace, where the existing task conversation takes over.
+Scout now uses the selected **08 Block Robot**: an ivory modular body, forest-green faceplate, amber eyes and coral ear. Its idle, wave and thinking illustrations are embedded in the page. Hover reveals a compact text/microphone input below the pet; successive visits alternate a wave, curious tilt and playful bob. Click or keyboard focus also opens the input. Reduced-motion preferences suppress animation.
 
-Messages retain company and period context. Named-company questions can change the conversation scope without changing the page filter. Requests to find a dashboard, case, Sources or Routines return an explicit navigation button. Source values expand inside the bubble. A request for a report or brief presents a scoped Workspace handoff card; it does not create an artifact until the user clicks Start in Workspace. The footer follows the same pending request. Handoff reuses the relevant task, preserves existing drafts and carries the conversation and source context. Reopening the card reuses the output. Ordinary data questions generate neither reports nor new tasks.
+Drag the character anywhere in the viewport. The input follows underneath and a small response bubble stays above its head, flipping below near the top edge. Controls stay within desktop and mobile viewport edges. Arrow keys move the focused character; Home returns it to the corner; Escape dismisses the bubble and input without discarding the draft. Position is remembered in this browser. Scout is hidden in Workspace, where the existing task conversation takes over.
+
+Sending a question shows brief, explicitly simulated progress stages and a Stop control. Cancel restores the prompt. Changing page, company scope or priority context invalidates pending responses. A concise answer appears in place; the full answer is kept for a later Workspace handoff. Source values open the scoped Sources view. Named-company questions can change conversation scope without changing the page filter. Navigation requests return an explicit navigation button.
+
+Report or brief requests present a compact **Work in Workspace** action; they do not create an artifact until clicked. Handoff reuses a relevant task, preserves drafts and carries conversation and source context. The starting document, artifact ID, viewed/saved version and conversation boundary are captured for pending work. Reopening its action reuses the output. Ordinary data questions generate neither reports nor new tasks. Priority actions preserve unrelated unsent companion text.
+
+Voice input uses the browser’s native speech recognition, when available in a secure context. The microphone action first explains browser-managed speech processing and offers English or Chinese; Start dictation initiates the browser permission flow. Dictation populates an editable draft and never sends automatically. Stop finalizes text; Cancel, closing, page changes and Workspace handoff stop recognition. Errors offer a text-input fallback. Browser/service availability varies, and audio may be processed online by the browser’s speech service. The app does not record or store audio. Recognition runs in the parent page through a source-checked, nonce-scoped message bridge; the content iframe retains `sandbox="allow-scripts"`.
 
 ## Company scope
 
@@ -49,13 +55,14 @@ Seeded workflows follow concrete operating-review scenarios: Northstar Support c
 
 ## Interaction checks
 
-Validated in the local browser at desktop and mobile widths:
+Validated locally at desktop and 390 × 844 mobile size:
 
-- Drag the character with an open bubble; the bubble follows and avoids viewport edges without losing the draft or toggling closed.
-- Close and reopen the bubble; dialogue, scroll position and unsent text survive.
-- Northstar priority answers on Home; requesting a brief keeps its two existing outputs unchanged until explicit Workspace handoff.
-- Workspace handoff creates the September brief in the original Northstar task, retaining earlier dialogue and combining the existing unsent draft with the companion draft.
-- Requests for Cedar’s dashboard stay on the page until the navigation button is clicked; source values expand inline and show September revenue of $6.35m.
-- Pending work cards label resolved company scope. Formal requests freeze their starting document configuration; later edits do not silently replace it.
+- Text/microphone dock below the pet, compact answer above it, and viewport edge containment.
+- Pointer dragging, keyboard corner reset, and Escape/reopen with an unsent draft.
+- Simulated progress, cancellation restoring the request, and short data answers without navigation.
+- Rapid Northstar → Cedar priority changes discard the stale request and preserve existing text.
+- Cedar brief creation occurs only after Work in Workspace; its conversation, September scope and calculated report are carried over.
+- Voice preflight explains processing and provides language selection. Parent bridge lifecycle/schema tests use a mocked recognizer; no microphone permission or recording was triggered during QA. Live recognition requires user/browser testing.
+- Embedded scripts pass syntax checks; no browser JavaScript errors in the tested flows.
 
-All embedded JavaScript passes syntax checks. No live LLM, durable memory, automatic scheduling or connector execution is implied.
+All data and agent progress are simulated. No live LLM, durable memory, automatic scheduling or connector execution is implied.
