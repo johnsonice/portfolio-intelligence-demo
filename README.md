@@ -4,6 +4,15 @@ Interactive product prototype for a private equity portfolio intelligence worksp
 
 This experimental branch, `explore/priority-led-home`, starts from `ce07a92`. It has its own Sites identity and preview; the main branch and original published demo are preserved.
 
+## Published demos
+
+| Version | Live website | Source branch |
+| --- | --- | --- |
+| **Priority exploration · current iteration** | [Open the latest demo](https://portfolio-priority-exploration.johnsonice.chatgpt.site/) | [`explore/priority-led-home`](https://github.com/johnsonice/portfolio-intelligence-demo/tree/explore/priority-led-home) |
+| Original demo | [Open the original demo](https://portfolio-intelligence-demo.johnsonice.chatgpt.site/) | [`main`](https://github.com/johnsonice/portfolio-intelligence-demo/tree/main) |
+
+Use the **Priority exploration** link when sharing the current design, including the unified briefing, floating Block Robot and Workspace that opens to a blank new task. The two demos have separate published URLs.
+
 ## Unified briefing and companion
 
 Home combines prepared Signals and Suggested tasks in one briefing feed. Scout, a floating portfolio companion, answers lightweight questions in place; Workspace owns sustained investigations and artifacts.
