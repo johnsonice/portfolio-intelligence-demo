@@ -91,3 +91,17 @@ assert.equal(run(`current().ctArtifact.kind`),'analysis');
 run(`globalThis.savedBrief={id:77,version:0,value:{title:'August source brief'}};globalThis.briefPlan={ids:['cedar'],start:0,end:3,focus:'total',format:'brief',action:'analyze',origin:'brief-snapshot',source:savedBrief};ctLaunch(briefPlan);savedBrief.value.title='Later changed title';`);
 assert.equal(run(`current().ctArtifact.sourceBrief.value.title`),'August source brief');
 console.log('PASS: manual company changes; conversational period continuity; report intent; frozen source brief; plan validation; scope/period interpretation; company isolation; context exclusions; frozen background context; pause/resume; exact-result reopen; drafts; immutable linked runs; October waiting; qualified challenge; publication ranges.');
+
+// Review a generated result without moving the active Workspace session or draft.
+const workBefore=plain(`({session:state.session,active:state.active,view:state.view,draft:state.draft,messages:state.messages})`);
+const reviewId=run(`state.artifacts.find(a=>a.versions.at(-1).ctArtifact)?.id`);
+run(`ctOpenReviewReport(${reviewId})`);
+assert.equal(run(`state.route`),'report');
+assert.deepEqual(plain(`({session:state.session,active:state.active,view:state.view,draft:state.draft,messages:state.messages})`),workBefore);
+assert.equal(run(`ctReviewedReport().artifact.id`),reviewId);
+const reviewVersion=run(`ctReviewedReport().version`);
+run(`state.artifacts.find(a=>a.id===${reviewId}).versions.push(clone(state.artifacts.find(a=>a.id===${reviewId}).versions.at(-1)))`);
+assert.equal(run(`ctReviewedReport().version`),reviewVersion);
+assert.match(run(`ctHomeReviewButton({type:'review',target:'artifact',artifactId:${reviewId},title:'Saved report'})`),/review-output/);
+assert.match(run(`ctHomeReviewButton({type:'review',target:'case',finding:'cedar',title:'Cedar report'})`),/data-case="cedar"/);
+console.log('PASS: Review preserves Workspace state and the exact report version; prepared Case and generated report routing.');

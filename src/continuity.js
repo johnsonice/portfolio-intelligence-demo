@@ -108,7 +108,7 @@ function ctHomeEntries(){
 }
 function ctHomeReviewButton(e){const label=e.type==='review'?'Review':e.type==='run'?'Run':'Open task',icon=e.type==='run'?'play':'arrow-up-right';
  if(e.target==='case'||e.target==='portfolio')return `<button type="button" class="as-button ct-home-primary" ${e.target==='case'?'data-case':'data-feed-report'}="${e.finding}" aria-label="Review: ${esc(e.title)}">Review ${I(icon)}</button>`;
- return ctButton(label+' '+I(icon),e.target==='artifact'?'open-output':e.target==='task'?'open-task':'run-plan',e.target==='artifact'?e.artifactId:e.target==='task'?e.taskKey:e.task.id).replace('class="as-button ', 'aria-label="'+label+': '+esc(e.title)+'" class="as-button ct-home-primary ');
+ return ctButton(label+' '+I(icon),e.target==='artifact'?'review-output':e.target==='task'?'open-task':'run-plan',e.target==='artifact'?e.artifactId:e.target==='task'?e.taskKey:e.task.id).replace('class="as-button ', 'aria-label="'+label+': '+esc(e.title)+'" class="as-button ct-home-primary ');
 }
 function ctHomeCard(e){const expanded=!!feedState.open['home:'+e.key],previewId='ct-home-preview-'+e.key.replace(/[^a-z0-9-]/gi,'-');
  const preview=e.type==='active'?`<p>${esc(e.summary)}</p>${e.status!=='Waiting for data'&&e.plan?ctPlanSummary(e.plan):''}`:e.type==='run'?`${ctPlanSummary(ctPlan(e.task))}<p>${esc(e.task.prompt)}</p><ol>${e.task.steps.map(s=>'<li>'+esc(s)+'</li>').join('')}</ol>`:e.plan?ctTrend(e.plan):e.finding?findingQuickView(e.finding):'';
@@ -203,7 +203,7 @@ function ctReuse(id,end){const f=ctFinding(id,end),reuseKey=f.id+':'+f.version;i
 const ctBaseDashboard=dashboardPage;
 dashboardPage=function(){let html=ctBaseDashboard().replace('Layout changes are kept for this preview.','Layout changes are saved in this browser.');const pins=ct.pins.filter(x=>x.company&&companyScope().includes(x.company));if(pins.length)html=html.replace('</section>',`<section class="ct-pinned-findings"><h2>Tracked findings</h2><div>${pins.map(x=>{const f=ct.findings[x.findingId]?.versions.find(v=>v.version===x.version),m=ctMetrics(x.company,0,f.end);return `<article><span>${names[x.company]} · ${x.findingId} v${x.version}</span><h3>${m.ratio.toFixed(1)}%</h3><p>People cost / revenue · ${ctMonths[f.end]}</p><small>Fixed source snapshot · Jun–${ctShort[f.end]} 2026</small>${ctButton('Open finding','open-finding',x.company+':'+f.end)}</article>`;}).join('')}</div></section></section>`);return html;};
 const ctBasePageContext=pageContext;
-pageContext=function(){const c=ctBasePageContext();if(state.route==='run'){const r=ops.runs.find(r=>r.id===ops.selectedRun);if(r?.config.end==='oct'){c.end='oct';c.requestedEnd='oct';c.availableEnd='sep';}}return c;};
+pageContext=function(){const c=ctBasePageContext();if(state.route==='report'){const r=ctReviewedReport();if(r){const a=r.config;return {...c,ids:[...a.companyIds],start:a.ctPlan?.start??0,end:a.end,label:a.title+' · v'+(r.version+1),caseId:null,route:'report'};}}if(state.route==='run'){const r=ops.runs.find(r=>r.id===ops.selectedRun);if(r?.config.end==='oct'){c.end='oct';c.requestedEnd='oct';c.availableEnd='sep';}}return c;};
 const ctBaseContextPeriod=contextPeriod;
 contextPeriod=function(c){if(c.end==='oct')return 'October requested · available through September';const e=typeof c.end==='number'?c.end:['jun','jul','aug','sep'].indexOf(c.end);return e>=0&&c.start!==undefined?ctShort[c.start]+'–'+ctShort[e]+' 2026':ctBaseContextPeriod(c);};
 const ctBasePetBubble=petBubble;
@@ -239,6 +239,15 @@ const ctBaseScopeApply=applyTaskCompanyScope;
 applyTaskCompanyScope=function(ids){ids=ids.filter(id=>Object.hasOwn(data,id));if(!ids.length){state.notice='Choose at least one company.';render();return;}if(current().ctArtifact){const next=ctClone(current().ctPlan);next.ids=[...ids];next.issue=ids.length===1?ids[0]:null;next.taskKey=state.session;ctCapturePlanContext(next);const t=ctTask();ctPause(state.session);t.ids=[...ids];t.issue=next.issue;t.plan=next;t.outputId=ctAddArtifact(state.session,next,current().ctArtifact.kind==='decision'?'analysis':current().ctArtifact.kind);t.status='review';state.notice='New scoped output created. Prior artifacts and drafts are retained.';render();ctSave();return;}ctBaseScopeApply(ids);const t=ctTask();t.ids=[...ids];t.issue=ids.length===1?ids[0]:null;ctSave();};
 function ctRender(){render();if(ct.modal?.type==='progress')ctPaintModal();ctSave();}
 function ctOpenTask(key){ctCloseModal();resumeTask(key);}
+// Reading a result does not switch the active investigation or confirm a judgment.
+function ctReviewedReport(){const selected=state.reportReview;if(!selected)return null;const artifact=state.artifacts.find(a=>a.id===selected.artifactId),config=artifact?.versions[selected.version];return config?{artifact,config,version:selected.version}:null;}
+function ctOpenReviewReport(id){const artifact=state.artifacts.find(a=>a.id===Number(id));if(!artifact)return;state.reportReview={artifactId:artifact.id,version:artifact.versions.length-1};state.route='report';state.notice='';render();}
+function ctReviewReportPage(){const report=ctReviewedReport();if(!report)return `<section class="cr-page"><button type="button" class="hub-back" data-route="home">${I('arrow-left')}Back to briefing</button><h1>Report unavailable</h1><p>Return to the briefing to choose another report.</p></section>`;
+ const {artifact,config:a,version:v}=report,plan=a.ctPlan,period=plan?ctMonths[plan.start]+'–'+ctMonths[plan.end]:'June–'+endName(a),sections={summary,chart,breakdown,data:dataTable,questions},cfg={...ctClone(a),readOnly:true};
+ const content=a.ctArtifact?ctArtifactHtml(cfg):(cfg.blocks||[]).map(id=>sections[id]?.(cfg)||'').join('');
+ return `<section class="cr-page ct-review-report"><button type="button" class="hub-back" data-route="home">${I('arrow-left')}Back to briefing</button><header class="cr-header"><div class="as-kicker">Report / ${esc(a.format||'analysis')} · v${v+1}</div><h1>${esc(a.title)}</h1><div class="cr-meta"><span>${esc(scopeName(a.companyIds))}</span><span>${period} 2026</span><span>Source-linked analysis · Synthetic data</span></div></header><article class="cr-paper"><div class="ct-report-content">${content}</div></article><section class="ct-report-handoff"><div><h2>Take this analysis further.</h2><p>Continue the existing conversation with this report and its source context.</p></div><button type="button" class="as-button" data-ct="review-workspace" data-ct-value="${artifact.id}:${v}">${I('panels-top-left')}Work in Workspace ${I('arrow-up-right')}</button></section></section>`;
+}
+
 function ctHandle(action,value){const m=ct.modal;
  if(action==='case-submit'){ctSubmitCaseFollowup(root.querySelector('#ct-case-followup-form'));return;}
  if(action==='case-followup'){const [id,choice]=value.split(':'),suggestion=ctCaseSuggestions(id).find(s=>s.id===choice);if(suggestion)ctAskFromCase(id,suggestion.prompt);return;}
@@ -263,6 +272,8 @@ function ctHandle(action,value){const m=ct.modal;
  else if(action==='takeover'){ctPause(value);ctOpenTask(value);root.querySelector('#as-input')?.focus();}
  else if(action==='open-task')ctOpenTask(value);
  else if(action==='open-output'){ctCloseModal();openHubArtifact(Number(value));}
+ else if(action==='review-output')ctOpenReviewReport(value);
+ else if(action==='review-workspace'){const [id,v]=value.split(':').map(Number);openHubArtifact(id,v);}
  else if(action==='challenge')ctOpenModal('challenge',value);
  else if(action==='save-challenge'){const [id,e]=value.split(':'),key=ctEnsureIssue(id),plan={ids:[id],start:0,end:Number(e),focus:'total',format:'report',issue:id};const out=ctAddArtifact(key,plan,'challenge');ctTask(key).status='review';ctTask(key).outputId=out;ctCloseModal();openHubArtifact(out);ctSave();}
  else if(action==='reuse-brief'){const [id,end]=value.split(':');ctReuse(id,Number(end));}

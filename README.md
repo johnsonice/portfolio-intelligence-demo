@@ -1,17 +1,22 @@
-# Portfolio Intelligence — Priority Exploration
+# Portfolio Intelligence — K.zone Design Study
 
 Interactive product prototype for a private equity portfolio intelligence workspace.
 
-This experimental branch, `explore/priority-led-home`, starts from `ce07a92`. It has its own Sites identity and preview; the main branch and original published demo are preserved.
+This design experiment lives on `explore/kzone-design-language`, starting from `0f3cb95` on the priority exploration branch. It applies K.zone’s sandpaper, glass, hairline and 45-degree geometry language to the existing portfolio mock. The earlier branches and demos are preserved.
+
+[Read the complete design study and page mapping](docs/KZONE-DESIGN-STUDY.md). The interface defaults to warm light mode; use **Light / Dark** in the top bar to compare appearances.
+
+**Review** opens a prepared Case or a standalone, version-specific generated report. Reading retains the active conversation and draft. Only **Work in Workspace** explicitly opens the originating task.
 
 ## Published demos
 
 | Version | Live website | Source branch |
 | --- | --- | --- |
-| **Priority exploration · current iteration** | [Open the latest demo](https://portfolio-priority-exploration.johnsonice.chatgpt.site/) | [`explore/priority-led-home`](https://github.com/johnsonice/portfolio-intelligence-demo/tree/explore/priority-led-home) |
+| **K.zone design study · this branch** | [Open the design study](https://portfolio-kzone-design-study.johnsonice.chatgpt.site/) | [`explore/kzone-design-language`](https://github.com/johnsonice/portfolio-intelligence-demo/tree/explore/kzone-design-language) |
+| Priority exploration · previous design | [Open the latest demo](https://portfolio-priority-exploration.johnsonice.chatgpt.site/) | [`explore/priority-led-home`](https://github.com/johnsonice/portfolio-intelligence-demo/tree/explore/priority-led-home) |
 | Original demo | [Open the original demo](https://portfolio-intelligence-demo.johnsonice.chatgpt.site/) | [`main`](https://github.com/johnsonice/portfolio-intelligence-demo/tree/main) |
 
-Use the **Priority exploration** link when sharing the current design. This iteration connects the briefing, Scout, persistent Workspace tasks and Routines around a continuing company investigation. The two demos have separate published URLs.
+Use the **K.zone design study** link to inspect this experiment (owner-private when first published). Use the Priority exploration link to compare the previous design. All three demos have separate Sites identities and URLs. This iteration retains the connected briefing, Scout, Workspace tasks and Routines.
 
 ## Continuing investigations
 
@@ -66,16 +71,19 @@ Simulated background work progresses only while the page is open. Reloading rest
 Open `dist/index.html` in a browser, or serve the static directory:
 
 ```sh
-python3 -m http.server 8080 --directory dist
+python3 -m http.server 8081 --directory dist
 ```
 
-Then open http://localhost:8080.
+Then open http://localhost:8081.
 
 ## Project structure and editing
 
 | Path | Purpose |
 | --- | --- |
 | `dist/index.html` | Complete standalone prototype, including the base interface, styles, scripts, icons and Scout illustrations. This is the deployed static file. |
+| `src/kzone.css` | Light/dark design tokens and component treatments. |
+| `src/kzone-theme.js` | Appearance switch inside the sandboxed page. |
+| `scripts/assemble-kzone.py` | Assembles continuity modules, normalizes legacy colors and adds the design study. |
 | `src/continuity.js` | Editable investigation behavior: context, task lifecycle, plans, judgments, follow-up runs and finding lineage. |
 | `src/continuity.css` | Styles for the continuity controls, dialogs and report additions. |
 | `src/continuity-storage.js` | Parent-page storage bridge for the sandboxed prototype; saves and restores browser-local demo state. |
@@ -86,7 +94,7 @@ Then open http://localhost:8080.
 No dependency installation is needed to view the committed demo. To change the continuity features, edit the appropriate file under `src/`, then rebuild the standalone page and run the logic checks with Python 3 and Node.js:
 
 ```sh
-python3 scripts/assemble-continuity.py
+python3 scripts/assemble-kzone.py
 node scripts/test-continuity.mjs
 ```
 
@@ -103,3 +111,7 @@ The Case follow-up redesign was checked in the desktop browser: the prominent pa
 For a release, also exercise the relevant flows in the rendered page: adjust and run a plan; correct and exclude context; pause and reload a task; record a judgment and run its follow-up; challenge a finding and reuse it in a brief or dashboard. Inspect both desktop and narrow-screen layouts, company filters and the source links. Browser interaction results should be recorded from the actual release candidate rather than inferred from a passing logic suite.
 
 Voice preflight explains browser-managed processing. Microphone recording is not part of the logic checks, and live dictation requires user/browser support. All portfolio data, agent responses and workflow execution remain simulated.
+
+### K.zone design verification
+
+Checked the Home, Workspace, Case, generated report, Dashboard, Routines and Sources surfaces in the browser. Light and dark appearances were inspected, including persisted theme selection after reload. At 390 × 844 the Home cards stack without horizontal overflow and the navigation uses compact labels. Verified a prepared Cedar Review opens Case 015, a generated September brief opens a standalone report, and Work in Workspace restores its originating task. The continuity suite and final embedded JavaScript syntax checks pass.
