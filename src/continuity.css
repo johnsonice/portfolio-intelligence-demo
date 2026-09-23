@@ -231,3 +231,19 @@
 #portfolio-ops .ct-case-suggestion>svg{width:13px;height:13px;color:#7090b8;flex-shrink:0;margin-top:2px}
 @media(max-width:800px){#portfolio-ops .ct-case-followup{padding:20px}#portfolio-ops .ct-case-suggestions{grid-template-columns:1fr}#portfolio-ops .ct-case-suggestion{align-items:center}#portfolio-ops .ct-case-suggestion strong{font-size:13px}#portfolio-ops .ct-case-suggestion small{font-size:11px;margin-top:2px}}
 @media(max-width:520px){#portfolio-ops .ct-case-followup{padding:18px 15px;margin-top:20px}#portfolio-ops .ct-case-followup h2{font-size:19px}#portfolio-ops .ct-case-agent-icon{flex-basis:34px;height:34px;border-radius:9px}#portfolio-ops .ct-case-composer-footer{align-items:flex-end;gap:8px;padding-left:12px}#portfolio-ops .ct-case-composer-footer>span{font-size:10px;max-width:170px}#portfolio-ops .ct-case-followup-kicker{font-size:9px;letter-spacing:.1em}}
+
+/* Separate prepared reviews from ideas for the next analysis. */
+#portfolio-ops .ct-home .bf-header{margin-bottom:28px}
+#portfolio-ops .ct-home .bf-header h1{margin-bottom:0}
+#portfolio-ops .ct-home-section+.ct-home-section{margin-top:28px;padding-top:24px;border-top:1px solid #dbe5f0}
+#portfolio-ops .ct-home-section-heading{margin-bottom:14px}
+#portfolio-ops .ct-home-section-heading h2{display:flex;align-items:center;gap:9px;margin:0;font:600 18px/1.4 Inter,Arial,sans-serif;letter-spacing:-.2px;color:#213e60}
+#portfolio-ops .ct-home-section-heading h2>svg{width:18px;height:18px;color:#567daa}
+#portfolio-ops .ct-home-count{display:inline-flex;align-items:center;justify-content:center;min-width:24px;padding:1px 6px;border-radius:6px;background:#e8eff8;color:#527397;font-size:12px;font-weight:500;box-sizing:border-box}
+#portfolio-ops .ct-home-section-heading p{font-size:14px;line-height:1.5;margin:5px 0 0;color:#73869d}
+#portfolio-ops .ct-home-section-run .ct-home-card{background:#f8fbff;border-color:#d6e3f3;box-shadow:none}
+#portfolio-ops .ct-home-section-run .ct-home-section-heading h2>svg{color:#316dc3}
+#portfolio-ops .ct-home-section .ct-home-empty{border:1px dashed #d5e0ec;border-radius:9px;padding:20px;margin:0;font-size:14px;background:#ffffff80}
+#portfolio-ops .ct-continue-status{line-height:1.5!important;color:#607998!important;margin-top:5px!important}
+#portfolio-ops .ct-continue-status strong{font-weight:600;color:#345c86}
+@media(max-width:720px){#portfolio-ops .ct-home .bf-header{margin-bottom:24px}#portfolio-ops .ct-home-section-heading h2{font-size:17px}#portfolio-ops .ct-home-section+.ct-home-section{margin-top:24px;padding-top:20px}}
