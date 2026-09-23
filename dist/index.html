@@ -3273,7 +3273,7 @@ function parsePortfolioRequest(text, current) {
 #portfolio-ops .pr-floating.is-dragging{cursor:grabbing}
 #portfolio-ops .pr-floating.is-dragging .pet-visual{animation:none;transform:rotate(-7deg)}
 #portfolio-ops .is-working .pet-visual{animation:pet-think 2s ease-in-out infinite}
-#portfolio-ops #aa-form.pet-dock{position:absolute;left:0;right:0;top:calc(var(--pet-size) + 6px);display:flex;align-items:center;gap:4px;margin:0;padding:4px 5px 4px 11px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px) saturate(125%);-webkit-backdrop-filter:blur(16px) saturate(125%);border:1px solid rgba(194,209,225,.7);border-radius:16px;box-shadow:0 4px 16px #233b5912;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility .16s;pointer-events:none}
+#portfolio-ops #aa-form.pet-dock{position:absolute;left:0;right:0;top:calc(var(--pet-size) + 6px);display:flex;align-items:center;gap:4px;margin:0;padding:4px 5px 4px 11px;background:rgba(255,255,255,.42);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:1px solid rgba(194,209,225,.4);border-radius:16px;box-shadow:0 3px 12px #233b590a;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility .16s;pointer-events:none}
 #portfolio-ops .pet-cluster.is-open #aa-form.pet-dock{opacity:1;visibility:visible;transform:none;pointer-events:auto}
 #portfolio-ops .pet-cluster.pet-hover:after{content:&#x27;&#x27;;position:absolute;top:calc(var(--pet-size) - 4px);height:16px;left:0;right:0;pointer-events:auto}
 #portfolio-ops #aa-input{border:0;outline:0;box-shadow:none;padding:5px 0;background:transparent;resize:none;min-height:30px;height:30px;max-height:80px;flex:1;min-width:0;font:400 14px/20px Inter,Arial,sans-serif;color:#243e5a}
@@ -3282,8 +3282,8 @@ function parsePortfolioRequest(text, current) {
 #portfolio-ops .pet-dock button:hover{background:#edf2f7;color:#294766}
 #portfolio-ops .pet-dock [data-aa-send]{background:#274f4b;color:#fff}
 #portfolio-ops .pet-dock button:disabled{opacity:.4;cursor:default}
-#portfolio-ops .pet-bubble{position:fixed;pointer-events:auto;width:286px;background:rgba(255,255,255,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid #dce5eed9;border-radius:15px;padding:11px 13px;box-shadow:0 7px 22px #263d5517;color:#2c425b;font:400 14px/1.65 Inter,Arial,sans-serif;overflow:visible}
-#portfolio-ops .pet-bubble:after{content:&#x27;&#x27;;position:absolute;bottom:-6px;left:calc(var(--tail-x) - 6px);width:11px;height:11px;background:rgba(255,255,255,.86);border-bottom:1px solid #dce5ee;border-right:1px solid #dce5ee;transform:rotate(45deg);border-radius:0 0 2px 0}
+#portfolio-ops .pet-bubble{position:fixed;pointer-events:auto;width:286px;background:rgba(255,255,255,.58);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(194,209,225,.45);border-radius:15px;padding:11px 13px;box-shadow:0 5px 18px #263d550c;color:#2c425b;font:400 14px/1.65 Inter,Arial,sans-serif;overflow:visible}
+#portfolio-ops .pet-bubble:after{content:&#x27;&#x27;;position:absolute;bottom:-6px;left:calc(var(--tail-x) - 6px);width:11px;height:11px;background:rgba(255,255,255,.58);border-bottom:1px solid rgba(194,209,225,.45);border-right:1px solid rgba(194,209,225,.45);transform:rotate(45deg);border-radius:0 0 2px 0}
 #portfolio-ops .pet-bubble.pet-below:after{bottom:auto;top:-6px;transform:rotate(225deg)}
 #portfolio-ops .pet-bubble p{margin:6px 0 0;max-height:145px;overflow:auto;overflow-wrap:anywhere;white-space:pre-line;font-size:14px;line-height:1.65;color:#314963}
 #portfolio-ops .pet-bubble-head{display:flex;align-items:center;gap:8px;color:#7c8da0;font-size:12px;line-height:1.5}
